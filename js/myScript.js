@@ -85,8 +85,15 @@ document.getElementById("jobSeachButtons").addEventListener("click", (e) => {
 
     getResponse(api).then((e) => {
       if (e == null) {
-        cardDisplay.appendChild(createErrorMessage());
+        cardDisplay.appendChild(
+          createErrorMessage(
+            'Lunch the proxy server ("proxy/node .") before sending query...<br>'
+          )
+        );
       } else {
+        if (e.length == 0) {
+          cardDisplay.appendChild(createErrorMessage("No jobs found...<br>"));
+        }
         for (let i = 0; i < e.length; i++) {
           //console.log(e[i]);
           const {
@@ -125,10 +132,9 @@ async function getResponse(api) {
   }
 }
 
-function createErrorMessage() {
+function createErrorMessage(info) {
   let message = document.createElement("p");
-  message.innerHTML =
-    'Lunch the proxy server ("proxy/node .") before sending query...<br>';
+  message.innerHTML = info;
   let link = document.createElement("a");
   link.setAttribute("href", repoLink);
   link.innerHTML = "Read Instructions";
