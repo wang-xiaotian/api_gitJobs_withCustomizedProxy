@@ -93,29 +93,30 @@ document.getElementById("jobSeachButtons").addEventListener("click", (e) => {
       } else {
         if (e.length == 0) {
           cardDisplay.appendChild(createErrorMessage("No jobs found...<br>"));
-        }
-        for (let i = 0; i < e.length; i++) {
-          //console.log(e[i]);
-          const {
-            title,
-            type,
-            description,
-            url,
-            company_logo,
-            company: companyName,
-            location,
-          } = e[i];
-          cardDisplay.appendChild(
-            createJobCard(
+        } else {
+          for (let i = 0; i < e.length; i++) {
+            //console.log(e[i]);
+            const {
               title,
               type,
               description,
               url,
               company_logo,
-              companyName,
-              location
-            )
-          );
+              company: companyName,
+              location,
+            } = e[i];
+            cardDisplay.appendChild(
+              createJobCard(
+                title,
+                type,
+                description,
+                url,
+                company_logo,
+                companyName,
+                location
+              )
+            );
+          }
         }
       }
     });
