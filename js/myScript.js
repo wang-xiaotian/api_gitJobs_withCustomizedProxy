@@ -81,8 +81,11 @@ document.getElementById("jobSeachButtons").addEventListener("click", (e) => {
     console.log(id);
     let api = gitAPI + id;
 
-    getResponse(api).then(
-      (e) => {
+    getResponse(api).then((e) => {
+      if (e == null) {
+        cardDisplay.innerHTML =
+          'Lunch the proxy server ("proxy/node .") before sending query...';
+      } else {
         for (let i = 0; i < e.length; i++) {
           //console.log(e[i]);
           const {
@@ -106,12 +109,8 @@ document.getElementById("jobSeachButtons").addEventListener("click", (e) => {
             )
           );
         }
-      },
-      (error) => {
-        cardDisplay.innerHTML =
-          "Lunch the proxy server in proxy/ before sending query...";
       }
-    );
+    });
   }
 });
 
