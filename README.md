@@ -7,6 +7,7 @@
 2. lunch this web app
    - index.html
    - type tech search term, like "java", "python" ...
+   - "No job found..." message will be displayed, no matched jobs found
 
 <img src="img/gitJobsSearch_result.JPG"
      alt="git Jobs Search web application screenshot "
