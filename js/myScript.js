@@ -1,6 +1,6 @@
 //alert("js is active");
 const gitAPI =
-  "http://127.0.0.1:3000/https://jobs.github.com/positions.json?description=";
+  "https://firstapp-xander.herokuapp.com/https://jobs.github.com/positions.json?description=";
 const repoLink =
   "https://github.com/wang-xiaotian/api_gitJobs_withCustomizedProxy";
 
