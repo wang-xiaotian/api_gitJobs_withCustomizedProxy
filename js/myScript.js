@@ -41,7 +41,7 @@ function createJobCard(
   } else {
     imgTop.setAttribute("src", "img/GitHub_Logo.png");
   }
-  imgTop.setAttribute("class", "card-img-top col-md-3");
+  imgTop.setAttribute("class", "card-img-top col-md-3 mt-2");
   imgTop.setAttribute("alt", companyName + " company logo");
   // imgTop.setAttribute("width", 50);
   // imgTop.setAttribute("height", 50);
