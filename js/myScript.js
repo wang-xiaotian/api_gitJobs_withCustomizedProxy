@@ -81,31 +81,37 @@ document.getElementById("jobSeachButtons").addEventListener("click", (e) => {
     console.log(id);
     let api = gitAPI + id;
 
-    getResponse(api).then((e) => {
-      for (let i = 0; i < e.length; i++) {
-        //console.log(e[i]);
-        const {
-          title,
-          type,
-          description,
-          url,
-          company_logo,
-          company: companyName,
-          location,
-        } = e[i];
-        cardDisplay.appendChild(
-          createJobCard(
+    getResponse(api).then(
+      (e) => {
+        for (let i = 0; i < e.length; i++) {
+          //console.log(e[i]);
+          const {
             title,
             type,
             description,
             url,
             company_logo,
-            companyName,
-            location
-          )
-        );
+            company: companyName,
+            location,
+          } = e[i];
+          cardDisplay.appendChild(
+            createJobCard(
+              title,
+              type,
+              description,
+              url,
+              company_logo,
+              companyName,
+              location
+            )
+          );
+        }
+      },
+      (error) => {
+        cardDisplay.innerHTML =
+          "Lunch the proxy server in proxy/ before sending query...";
       }
-    });
+    );
   }
 });
 
