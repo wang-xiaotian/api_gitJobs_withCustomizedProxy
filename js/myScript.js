@@ -1,6 +1,8 @@
 //alert("js is active");
 const gitAPI =
   "http://127.0.0.1:3000/https://jobs.github.com/positions.json?description=";
+const repoLink =
+  "https://github.com/wang-xiaotian/api_gitJobs_withCustomizedProxy";
 
 document.getElementById("createButton").addEventListener("click", (e) => {
   e.preventDefault();
@@ -83,8 +85,7 @@ document.getElementById("jobSeachButtons").addEventListener("click", (e) => {
 
     getResponse(api).then((e) => {
       if (e == null) {
-        cardDisplay.innerHTML =
-          'Lunch the proxy server ("proxy/node .") before sending query...';
+        cardDisplay.appendChild(createErrorMessage());
       } else {
         for (let i = 0; i < e.length; i++) {
           //console.log(e[i]);
@@ -122,6 +123,17 @@ async function getResponse(api) {
   } catch (error) {
     console.log(error);
   }
+}
+
+function createErrorMessage() {
+  let message = document.createElement("p");
+  message.innerHTML =
+    'Lunch the proxy server ("proxy/node .") before sending query...<br>';
+  let link = document.createElement("a");
+  link.setAttribute("href", repoLink);
+  link.innerHTML = "Read Instructions";
+  message.appendChild(link);
+  return message;
 }
 
 // const xhr = new XMLHttpRequest();
